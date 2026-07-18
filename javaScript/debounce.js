@@ -17,7 +17,7 @@ function debounce(func, delay){
 }
 
 //MEmo
-//func.apply(this, args)    this line mean execute the function right now and unpack the ...args eg:- args is ["Ninja", 12, "Sword"] and remember how own the function
+//func.apply(this, args)    this line mean execute the function right now and unpack the ...args eg:- args is ["Ninja", 12, "Sword"] and remember who own the function
 //...args = Packs all separate inputs into one neat box.
 // .apply() = Unpacks that box and runs the function.
 //this = Makes sure the correct object/character performs the action
