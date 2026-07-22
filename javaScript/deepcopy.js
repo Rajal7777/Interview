@@ -35,8 +35,5 @@ newCopy.metadata.role = 'public'
 console.log('NewCopy', newCopy);
 console.log(orignalUser) 
 
-let  p ={...orignalUser,metadata:{...orignalUser.metadata,role:'public'}};
-console.log('P', p);
-
 
 
