@@ -1,19 +1,14 @@
 
 import './App.css'
-//tankstack
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import Post from './tankstack/Post'
-
-const queryClient = new QueryClient();
+import ModernForm from './forms/UncontrolledInput';
 
 
 
 function App() {
  return (
-  <QueryClientProvider client={queryClient}>
-      <Post />
-  </QueryClientProvider>
-  )
+
+  <ModernForm /> 
+ )
 }
 
 export default App
