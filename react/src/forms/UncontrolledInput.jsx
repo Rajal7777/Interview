@@ -1,3 +1,5 @@
+
+//thisis better because zero re-renders while typing.The code is heavily simplified,readable , out of box
 const ModernForm = () => {
   async function handleSubmitAction(formData) {
     const email = formData.get("email");
