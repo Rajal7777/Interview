@@ -1,6 +1,6 @@
 
 import './App.css'
-import Tooltip from './Tooltip-useLayoutEffect';
+import CouterWithClosure from './basic/Couter-with-closure';
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
  
 
   return (
-   <Tooltip />
+    <CouterWithClosure />
   )
 }
 
