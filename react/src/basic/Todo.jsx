@@ -5,6 +5,8 @@ export default function Todo() {
   const [input, setInput] = useState("");
   const [editingId, setEditingId] = useState(null);
 
+  console.log(todos)
+
   function handleSaveTodo() {
     const trimmedInput = input.trim();
 
