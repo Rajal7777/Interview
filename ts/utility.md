@@ -9,6 +9,7 @@ interface User {
 }
 
 Instead of creating another type manually:
+
 1)Partial<T>  this makes every property optional.
 type UpdateUser = Partial<User>;
 becomes: 
@@ -24,12 +25,15 @@ const user: UpdateUser = {
 
 2)Required<T> makes every property required.
 Real World use for updating form
+
 type User = {
   name?: string;
   age?: number;
 };
+
 type FullUser = Required<User>;
 becomes:
+
 type FullUser {
     name: string;
     age: number
@@ -37,9 +41,11 @@ type FullUser {
 
 3. Readonly<T>  Prevents modification.
 Makes all property imutable readonly.throws an error if you try to assign a value;
+
 type User = {
   name: string;
 };
+
 const user: Readonly<user>= {
     name: 'Baki'
 };
@@ -55,9 +61,10 @@ type User = {
   name: string;
   email: string;
 };
+
 type UserPreview = Pick<User, 'name' | 'email>;
 
-becomes: result selsct the name: string and email: string from User
+becomes: result select the name: string and email: string from User
 type UserPreview = {
   name: string;
   email: string;
@@ -126,5 +133,6 @@ type User = {
 type ProductRecord = Awaited<ReturnType<typeof prisma.product.findMany>>[number]
 
 Awaited -> Promise ()
+
 ReturnTyple gets the return type of findMany.
 [number] gets the type of one array element.
