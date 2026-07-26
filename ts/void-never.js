@@ -4,10 +4,12 @@ function printname(name) {
     console.log(name);  //Jhon Doe
 }
 
-printname("John Doe"); //Jhon Doe
+printname("John Doe"); 
 
 const showthis = printname("Jane Doe");
-console.log(showthis);  //undefined we call the function but it does not return anything so the value is automatically undefined
+ console.log(showthis);  //undefined we call the function but it does not return anything so the value is automatically undefined
+
+
 
 //never -> the function never finishes
 function throwError(message) {

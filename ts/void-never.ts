@@ -6,11 +6,9 @@ function printname(name: string): void {
    console.log(name);
 }
 
-printname("John Doe"); 
 
-const showthis = printname("Jane Doe"); 
 
-console.log(showthis); 
+
 
 type Shape =
   | { kind: "circle"; radius: number }
