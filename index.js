@@ -1,35 +1,64 @@
+//const nested = [1, [2, [3, 4], 5], 6];
+
+//const res = nested.flat();  //[ 1, 2, [ 3, 4 ], 5, 6 ]
+
+//const res = nested.flat(Infinity); //[ 1, 2, 3, 4, 5, 6 ]
+
 /*
+This method in not good for large nested array because it will throw stack overflow error if the nested array is too deep. So we can use recursive solution to flatten the nested array.
+the calls stack becomes full and it will throw stack overflow error. So we can use recursive solution to flatten the nested array.
 
-in for loop 
-1st step i = 0 it wil run only one time for first before the loop runs.
-then the condition if i < arr.length if true it will run the condition inside the {} block.
-then it will run i++ or i -- 
+const nested = [1, [2, [3, 4], 5], 6];
+//Recursive solution
+function flattenArr(arr) {
+ let result = [];
 
-const num = [5, 10, 15, 20, 25];
-
-function findMax(arr){
-  let max = arr[0];
-  console.log(max);
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > max){
-      max = arr[i];
-    }
+ for(const item of arr){
+  //check if item is array
+  //Array.array(value) return true if the item is array else false
+  if(Array.isArray(item)){
+  //recursively flatten nested array and merge results {if its array pass the the same function}
+  console.log('if block',...flattenArr(item))
+  result.push(...flattenArr(item))
+  }else{
+    //if value is primitive/non array type
+    console.log('else block',item)
+    result.push(item);
+    
   }
-  return max;
+ }
+
+ return result;
 }
 
-const result =findMax(num);
 
+console.log(flattenArr(nested))
 
-console.log(num.length)
-console.log(result)
 
 */
-const num=[5, 10, 15, 20, 25];
-function findMax(num){
-  return Math.max(...num);  //Math.max() method returns the largest of zero or more numbers. we use spread operator to pass the array elements as individual arguments to the Math.max() function.
+
+
+//for deeply nested array we can use iterative solution to flatten the nested array.
+console.log('hey')
+const nested = [1, [2, [3, 4], 5], 6];
+
+function flattenArr(arr){
+  //copy the arr so that we dont mutate the original array
+  const copiedArr = [...arr];
+
+  const result = [];
+
+  while(copiedArr.length > 0){
+    const next = copiedArr.pop();
+
+    if(Array.isArray(next)){
+      //push items back to the copiedArr to ciontinue unpacking
+      copiedArr.push(...next)
+    }else{
+      copiedArr.push(next);
+    }
+  }
+  return result.reverse();
 }
 
-const res = findMax(num);
-console.log(res)
+console.log(flattenArr(nested))
