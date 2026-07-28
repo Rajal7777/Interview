@@ -1,21 +1,25 @@
-//function.prototype.bind()
-/*
-it allows to create a new function with a specific this context and optinally, preset aruguments. bind id mosly used in classes that you want to pass into other functions.
-*/
+const john = {
+  age: 67,
+  getAge: function() {
+    return this.age;
+  }
+}
 
-// const john = {
-//   age: 43,
-//   getAge: function () {
-//     return this.age;
-//   }
-// }
+console.log(john.getAge()); // 67
 
-//const john1 = {
-//  age: 67,
-//  getAge() {
-//    return this.age;
-//  }
-//}
+const unbounded = john.getAge;
+console.log(unbounded()); // undefined
+
+const bound = john.getAge.bind(john);
+console.log(bound()); // 67
+
+const newObj = {
+  age: 10
+}
+const bounded = john.getAge.bind(newObj);
+console.log(bounded()); // 10
+
+
 
 //in case of arrow function, they inherit this from their lexical scope, so this will not refer to the object itself but to the outer scope. In this case, it will refer to the global object (window in browsers) or undefined in strict mode.
 
