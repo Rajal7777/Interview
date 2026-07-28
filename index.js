@@ -37,28 +37,34 @@ console.log(flattenArr(nested))
 
 */
 
-
 //for deeply nested array we can use iterative solution to flatten the nested array.
-console.log('hey')
+console.log("hey");
 const nested = [1, [2, [3, 4], 5], 6];
+//1st loop 6 will go to the else block.2nd will be [1, [2, [3, 4], 5] from if block then ...arr will unpack it becomes -> 1,[2,[3,4],5 that will be again puhsed back to the coppied arr.
 
-function flattenArr(arr){
+function flattenArr(arr) {
   //copy the arr so that we dont mutate the original array
   const copiedArr = [...arr];
 
   const result = [];
 
-  while(copiedArr.length > 0){
+  while (copiedArr.length > 0) {
     const next = copiedArr.pop();
 
-    if(Array.isArray(next)){
-      //push items back to the copiedArr to ciontinue unpacking
-      copiedArr.push(...next)
-    }else{
-      copiedArr.push(next);
+    if (Array.isArray(next)) {
+      //push items back to the copiedArr to continue unpacking
+      copiedArr.push(...next);
+      console.log("from if block", next);
+    } else {
+      result.push(next);
+      console.log("from else block", next);
     }
   }
-  return result.reverse();
+  return result;
 }
 
-console.log(flattenArr(nested))
+console.log(flattenArr(nested));
+
+
+let demo = [1, [2, [3, 4], 5]];
+console.log(demo.pop())

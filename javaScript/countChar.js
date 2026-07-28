@@ -47,6 +47,8 @@ const res = countChar(str);
 console.log(res)
 
 */
+//simple explanation obj[chr] cahi dynamic ho obj["a"] xa vany + 1 xoina vany 1 return 
+//p ko case ma 0bj={a:1,p:1} 2nd time p xa vany 1 + 1 = 2 return
 
 const str = "apple";
 
@@ -56,10 +58,8 @@ function countChar(str) {
   for (const char of str) {
     if (obj[char]) {
       obj[char] += 1;
-      console.log('if block',char, obj[char], obj);
     } else {
       obj[char] = 1;
-      console.log('else block',char, obj[char], obj);
     }
   }
 
