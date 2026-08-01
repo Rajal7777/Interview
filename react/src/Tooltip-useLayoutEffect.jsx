@@ -6,6 +6,7 @@ export default function Tooltip() {
   const boxRef = useRef(null);
 
   console.log("inside the tool tip");
+  
   //Fires before the Dom get painted
   useLayoutEffect(() => {
     const height = boxRef.current.getBoundingClientRect().height;

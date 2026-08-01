@@ -1,6 +1,6 @@
 
 import './App.css'
-import Todo from './basic/Todo';
+import Todo from './Todo';
 
 
 

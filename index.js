@@ -1,27 +1,29 @@
-//indexOf()Yo character pahilo choti kata bhetiyo vanera index dinxa.
+const numbers = [1,1,2,3,5,5,8,8,10,11,12];
 
-//indexOf(c) will give the index from the start  ->4 count from a
-//Yo character last choti kata bhetiyo vanera index dinxa.
 
-//lastIndexOf(c) will give the index count from the last(back) -> 5 count from e
+console.log(removeDuplicate(numbers));
 
-const str = "aabbcdded";
+function removeDuplicate(arr){
+ const newArr = [];
 
-function findFirstNonRepeatingChar(str) {
-  for (const char of str) {
-    if (str.indexOf(char) === str.lastIndexOf(char)) {
-      return char;
+  for(const num of arr){
+    if(!newArr.includes(num)){
+      newArr.push(num)
     }
   }
- 
+
+  return newArr;
 }
 
-console.log(findFirstNonRepeatingChar(str)); //c
+// Modern Set use garay ra duplicate number hataya ko
+const unique = [...new Set(numbers)]
 
+console.log(unique)
 
-const str2 = "aabbcdded";
-console.log(str2.indexOf('b'))  //2
-console.log(str2.indexOf('c'))  //4 found 1st time at 4 index
+//we will use filter() & indexOf method coz indexOf will always return the 1st index of the element
+const findUnique = (nums) => {
+  //hami sab num ma check garcau if 1st ma vetay ko index ra ahilay ko num ko index same xa vany matra filter match hunxa
+  return nums.filter((num, index) => nums.indexOf(num) === index)
+}
 
-console.log(str2.lastIndexOf('a'))  //1
-console.log(str2.lastIndexOf('c'))  //4  found last time at index 4
+console.log(findUnique(numbers))

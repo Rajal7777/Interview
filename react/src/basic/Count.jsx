@@ -9,7 +9,7 @@ export default function Count() {
 
     if (btnType === "add") {
       setCount((prev) => prev + 1);
-    } else if (btnType === "subtract") {
+    } else  {
       setCount((prev) => {
         if (prev === 0) return 0;
         return prev - 1;

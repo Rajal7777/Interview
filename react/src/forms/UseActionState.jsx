@@ -1,7 +1,8 @@
 import { useActionState } from "react";
 
 async function updateName(prevState, formData) {
-  console.log('prevState',prevState, formData);
+   console.log('prevState',prevState, formData);
+   
   console.log(formData.get("name"));
   const res = await formData.get("name");
   return {

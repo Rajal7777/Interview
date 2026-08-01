@@ -3,7 +3,6 @@
 
 //Sabai bhanda pahila ma object (wa Map) use garera string ko harek character ko frequency count garchu. Tespaxi original string lai feri traverse garchu ra jun character ko frequency 1 xa, teslai immediately return garchu. Yo approach ko time complexity O(n) ra space complexity O(n) hunxa."
 
-
 const str = "aabbcdde";
 
 function findFirstNonRepeatingChar(str) {
@@ -15,18 +14,14 @@ function findFirstNonRepeatingChar(str) {
   }
 
   //find the 1st non-repeating char
-  for(const char of str){
-    if(obj[char] === 1){
+  for (const char of str) {
+    if (obj[char] === 1) {
       return char;
     }
   }
-  
 }
 
 console.log(findFirstNonRepeatingChar(str)); //c
-
-
-
 
 //indexOf()Yo character pahilo choti kata bhetiyo vanera index dinxa.
 
@@ -39,19 +34,18 @@ const str = "aabbcdded";
 
 function findFirstNonRepeatingChar(str) {
   for (const char of str) {
+    //if the char 1st index{found for 1str time} and lst index is same{index found at the last time}
     if (str.indexOf(char) === str.lastIndexOf(char)) {
       return char;
     }
   }
- 
 }
 
 console.log(findFirstNonRepeatingChar(str)); //c
 
-
 const str2 = "aabbcdded";
-console.log(str2.indexOf('b'))  //2
-console.log(str2.indexOf('c'))  //4 found 1st time at 4 index
+console.log(str2.indexOf("b")); //2
+console.log(str2.indexOf("c")); //4 found 1st time at 4 index
 
-console.log(str2.lastIndexOf('a'))  //1
-console.log(str2.lastIndexOf('c'))  //4  found last time at index 4
+console.log(str2.lastIndexOf("a")); //1
+console.log(str2.lastIndexOf("c")); //4  found last time at index 4
