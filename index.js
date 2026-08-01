@@ -1,44 +1,41 @@
-
-//function.prototype.bind()
-/*
-it allows to create a new function with a specific this context and optinally, preset aruguments. bind id mosly used in classes that you want to pass into other functions.
-*/
-
-// const john = {
-//   age: 43,
-//   getAge: function () {
-//     return this.age;
-//   }
-// }
-
-//const john1 = {
-//  age: 67,
-//  getAge() {
-//    return this.age;
-//  }
-//}
-
-//in case of arrow function, they inherit this from their lexical scope, so this will not refer to the object itself but to the outer scope. In this case, it will refer to the global object (window in browsers) or undefined in strict mode.
+//alternaate
 
 /*
-const john1 = {
-  age: 67,
-  getAge() { // Shorthand method syntax
-    return this.age;
-  }
+const uniqueWorker = {};
+
+function findUniqueWorkers(workers) {
+  workers.map((worker) => {
+    if(uniqueWorker[worker.id]) {
+      return;
+    }
+    uniqueWorker[worker.id] = worker;
+  });
+
+  return Object.values(uniqueWorker);
 }
 
-// Call the method directly
-console.log(john1.getAge()); // 67
+
+console.log(findUniqueWorkers(workers));
 
 */
+const workers = [
+  { id: 1, name: "Anish" },
+  { id: 2, name: "Sita" },
+  { id: 1, name: "Anish" }, // Duplicate ID
+  { id: 3, name: "Hari" },
+];
 
-const jho1 = {
-  age: 67,
-  getAge: () => {
-    return jho1.age;
-  }
-}
+const uniqueWokers = {};
 
-console.log(jho1.getAge()); // 67
+const findUniqueWorkers = workers.filter((worker) => {
+  //check garacu ki uniqueWokers object ma worker.id cha ki nai
+  //3rd loop ma id 1 xa true hunca so return false hunca ra filter bata skip hunca
+  if(uniqueWokers[worker.id]){
+      return false;
+    }
+    uniqueWokers[worker.id] = true;  //{1:true, 2:true, 3:true}
+    return true;
+  });
 
+
+console.log(findUniqueWorkers);
