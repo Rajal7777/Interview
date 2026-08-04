@@ -1,16 +1,17 @@
 //Implement a Debounce Function
 
-function debounce(func, delay){
+function debounce(fun, delay){
     let timerId;
 
-    return function (...args){  //spread parameter passed down like fun, dleay, mouseclick,keystroke
+    //rest parameter
+    return function (...args){  //rest parameter passed down like fun, delay, mouseclick, keystroke
         //closure it can access, change the outer scope variable of parent timerId
         //clear any timer if running and reset the running timer
         clearTimeout(timerId);
 
         //set the timer
         timerId = setTimeout(() => {
-            func.apply(this, args);
+           fun(...args);     //spread operator unpack the args and pass it to the function
         }, delay)
     }
 

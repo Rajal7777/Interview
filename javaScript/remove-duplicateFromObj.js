@@ -5,6 +5,9 @@ const users = [
   { id: 3, name: "Hari" }
 ];
 
+
+//Set is a built-in JavaScript data structure that stores only unique values. I created a Set called seen to keep track of the worker IDs that I've already processed. This allows me to quickly check whether an ID has been seen before.
+
 // new set object to keep track of seen IDs
 //set ly eutai value double rakhna dindae na
 const seen = new Set();  //khali set object banako
@@ -95,7 +98,7 @@ console.log(findUniqueWorkers(workers));
 
 
 /*  -------------------------------------------------------  */
-
+  
 
 //alternaate
 

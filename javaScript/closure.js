@@ -1,6 +1,6 @@
 //closure
 //Imagine you have a magic backpack.Inside this backpack, you put a notebook with a secret password written on it.Even if you walk away from your bedroom and go to a completely different school, whenever you open that specific backpack, you can still read your secret password.In JavaScript, a closure is exactly like that magic backpack. It allows a function to remember and access variables from its original home, even after that home has closed down
-
+//A closure is when an inner function remembers and can access the variables of its outer function even after the outer function has finished executing.
 function bagPack() {
   let secret = "this is a scret text";
 
