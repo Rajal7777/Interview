@@ -19,9 +19,9 @@ When the state changes, React compares the new Virtual DOM with the previous one
 
 Virtual DOM は実際の DOM の軽量(けいりょう light weight)なコピーです。
 
-State が変更されると、新しい Virtual DOM と以前の Virtual DOM を比較します。
+State が変更されると(へんこう)、新しい Virtual DOM と以前の Virtual DOM を比較します。
 
-変更された部分だけを実際の DOM に反映するため、効率よく画面を更新できます。
+変更された部分だけを実際の DOM に反映するため、効率よく画面を更新できます(こうしん)。
 
 /*------------------------------------------------------------------------*/
 
@@ -72,4 +72,51 @@ Examples include fetching data, calling APIs, setting timers, or adding event li
 The dependency array controls when the effect runs.
 In React, a component's primary job is to take data and render UI. Anything that happens outside of that main rendering flow is called a "side effect." This includes fetching data from an API, manually changing the DOM, setting up a timer, or subscribing to an external service.useEffect is a React Hook that lets you synchronize your component with these external systems. It runs after the component renders on the screen, ensuring that heavy operations do not block the visual loading of your app
 
-useEffectとは、関数コンポーネントにおいて『副作用（サイドエフェクト）』を実行するためのReacthookです
+useEffectとは、関数コンポーネントにおいて『副作用ふくさよう（サイドエフェクト）』を実行するためのReacthookです
+
+                 Component Starts
+                        │
+                        ▼
+            function App() executes
+                        │
+                        ▼
+       React reads useState() values
+                        │
+                        ▼
+            JSX is returned (Render)
+                        │
+                        ▼
+        React updates the Real DOM
+                 (Browser Paint)
+                        │
+                        ▼
+         ✅ useEffect() runs here
+        (After the screen updates)
+                        │
+                        │
+        ┌───────────────┴───────────────┐
+        │                               │
+        ▼                               ▼
+No state update                 setState() called
+        │                               │
+        ▼                               ▼
+      Finish                  React schedules
+                              a new render
+                                      │
+                                      ▼
+                         Component function
+                           executes again
+                                      │
+                                      ▼
+                         Reads new state value
+                                      │
+                                      ▼
+                              Returns new JSX
+                                      │
+                                      ▼
+                           Updates only changed
+                             parts of the DOM
+                                      │
+                                      ▼
+                            useEffect runs again
+                     (if dependencies changed)
