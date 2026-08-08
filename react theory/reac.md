@@ -120,3 +120,69 @@ No state update                 setState() called
                                       ▼
                             useEffect runs again
                      (if dependencies changed)
+
+
+
+
+
+                                     Component Mount
+                       │
+                       ▼
+             Component Function Runs
+                       │
+                       ▼
+              useState() returns state
+                       │
+                       ▼
+                 JSX is returned
+                       │
+                       ▼
+         React builds Virtual DOM
+                       │
+                       ▼
+        React updates Real DOM
+                       │
+                       ▼
+          Browser paints the UI
+                       │
+                       ▼
+             useEffect() executes
+                       │
+                       ▼
+         ┌───────────────────────────┐
+         │ User clicks a button      │
+         │ API response arrives      │
+         │ Props change              │
+         └───────────────────────────┘
+                       │
+                       ▼
+               setState() is called
+                       │
+                       ▼
+        React schedules another render
+                       │
+                       ▼
+         Component Function Runs Again
+                       │
+                       ▼
+             Virtual DOM Comparison
+                       │
+                       ▼
+        Update only changed DOM nodes
+                       │
+                       ▼
+      Cleanup previous effect (if needed)
+                       │
+                       ▼
+          Run new useEffect() callback
+
+
+          🇯🇵 Interview Tip
+
+If an interviewer asks:
+
+"What happens when you call setState?"
+
+A strong answer is:
+
+setState を呼び出すと、React は再レンダリングをスケジュールします。その後、コンポーネント関数が再実行され、新しい Virtual DOM を作成します。前回との差分を比較し、変更された部分だけを Real DOM に反映します。最後に useEffect が必要に応じて実行されます。
