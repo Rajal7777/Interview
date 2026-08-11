@@ -1,0 +1,126 @@
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      padding: 40px 20px;
+    }
+
+    /* 1. CSS GRID CONTAINER (Macro-Layout) */
+    .product-grid {
+      display: grid;
+      /* Automatically generates as many columns as fit, minimum 250px wide */
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    /* 2. PRODUCT CARD (Flexbox Column Layout) */
+    .product-card {
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centers text items horizontally */
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    /* 3. IMAGE WRAPPER (Flexbox Overlay Management) */
+    .image-container {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .product-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* Badges inside Image Wrapper */
+    .wishlist-btn {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #e63946;
+      cursor: pointer;
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #2ec4b6;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .cart-btn {
+      position: absolute;
+      background-color: #3f37c9;
+      color: white;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(63, 55, 201, 0.3);
+    }
+
+    /* Card Details Section */
+    .product-title {
+      font-size: 16px;
+      color: #222222;
+      font-weight: 700;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .supplier-name {
+      font-size: 13px;
+      color: #777777;
+      margin-bottom: 12px;
+    }
+
+    /* 4. PRICE BOX (Flexbox Row Layout) */
+    .price-box {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 15px;
+      margin-top: auto; /* Pushes the price block cleanly to the bottom if titles vary in length */
+    }
+
+    .current-price {
+      font-weight: bold;
+      color: #222222;
+    }
+
+    .original-price {
+      color: #e63946;
+      text-decoration: line-through;
+    }
