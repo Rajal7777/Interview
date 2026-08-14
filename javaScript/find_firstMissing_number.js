@@ -1,3 +1,25 @@
+/*
+Time  → O(n)
+Space → O(n)
+*/
+const nums = [3, 4, -1, 1];
+
+function findFirstMissingPositive(nums) {
+  const set = new Set(nums);
+
+  let i = 1;
+  while (set.has(i)) {
+    i++;
+  }
+
+  return i;
+}
+
+console.log(findFirstMissingPositive(nums));
+
+/* ===================================================== */
+
+
 /* ===================================================== */
 
 /*
@@ -35,3 +57,11 @@ function findFirstMissingPositive(nums) {
 }
 
 console.log(findFirstMissingPositive(nums));
+
+
+/*
+theory 
+space → O(1)  incase the varible,arr,obj have fixed size in memory so space complexity is O(1) No Set, Map, or extra array.
+
+space → O(n)  incase the varible,arr,obj have dynamic size in memory so space complexity is O(n) Set, Map, or extra array.
+*/
