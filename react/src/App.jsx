@@ -1,6 +1,6 @@
 
 import './App.css'
-import Todo from './Todo';
+import Reducer from './basic/reducer';
 
 
 
@@ -10,7 +10,7 @@ function App() {
 
  return (
 
-  <Todo/> 
+  <Reducer />
  )
 }
 
