@@ -1,16 +1,19 @@
 
 import './App.css'
-import Reducer from './basic/reducer';
+import RefCount from './hooks/Ref';
+
 
 
 
 
 function App() {
 
-
  return (
 
-  <Reducer />
+ <>
+ <p>count</p>
+  <RefCount/>
+ </>
  )
 }
 
