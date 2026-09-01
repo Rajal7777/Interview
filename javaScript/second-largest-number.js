@@ -1,5 +1,28 @@
 const numbers = [10, 5, 20, 8, 20, 15];
 
+
+function secondLargest(arr) {
+  let largest = -Infinity;
+  let secondLargest = -Infinity;
+
+  for (const num of arr) {
+    if(num > largest){
+        secondLargest = largest;
+        largest = num;
+    } else if (num > secondLargest && num < largest   ) {
+        console.log('inside loop', num);
+        secondLargest = num;
+    }
+  }
+  return secondLargest;
+}
+
+
+console.log(secondLargest(numbers)); // Output: 15
+
+
+const numbers = [10, 5, 20, 8, 20, 15];
+
 function secondLargest(arr) {
   // 1. Remove duplicates using a Set
   const uniqueNumbers = [...new Set(arr)];

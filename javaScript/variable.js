@@ -59,3 +59,8 @@ console.log(sarah);  // undefined
 
 //in js using new keyword this refers to the new empty object we create.
 
+let count = 1;
+
+console.log(count++)  //output 1 because it returns the value before incrementing
+console.log(++count)  //output 3 because it increments first then returns the value
+console.log(count)    //output 3 because the value has been incremented
