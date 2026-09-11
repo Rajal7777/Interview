@@ -1,13 +1,11 @@
-let str = "Rajal";
+const str2 = "madam";
 
-function reverseString(str) {
-  let reversed = "";
+function isSame(str) {
+const str2 = str.toLowerCase().trim();
 
-  for (let i = str.length -1; i >= 0; i--){
-    reversed += str[i];
-  }
-  return reversed;
+return str2 === str2.split('').reverse().join('');
+
+
 }
-  
 
-console.log(reverseString(str));
+console.log(isSame(str2))
