@@ -38,3 +38,18 @@ You can say:
 
 "The algorithm is already optimal. We must visit each number once, so the time complexity cannot be better than O(n). The space complexity is already O(1) because we don't use any extra data structures."
 */
+
+
+function fizbuz(n){
+  let out = "";
+  if(n % 3 === 0 && n % 5 === 0){
+    out += "fizzbuzz"
+  }else if(n % 3 === 0){
+    out += "fizz"
+  }else if(n % 5 === 0){
+    out += "buzz"
+  }
+  return out;
+}
+
+console.log(fizbuz(15))
