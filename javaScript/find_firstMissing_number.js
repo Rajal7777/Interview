@@ -1,26 +1,24 @@
 /*
 Time  → O(n)
 Space → O(n)
+Time Complexity / 時間計算量\(O(N)\)Loop runs max \(N+1\) times; Set lookups are \(O(1)\). / ループは最大 \(N+1\) 回で、Setの検索は \(O(1)\) のため。
+
+Space Complexity / 空間計算量\(O(N)\) because we store all elements in a Set. / 配列のすべての要素をSetに格納するため。
 */
 const nums = [3, 4, -1, 1];
 
-function findFirstMissingPositive(nums) {
+function findMissingNumber(nums) {
   const set = new Set(nums);
 
-  let i = 1;
-  while (set.has(i)) {
-    i++;
+  for (let i = 0; i <= nums.length; i++) {
+    if (!set.has(i)) {
+      return i;
+    }
   }
-
-  return i;
 }
 
-console.log(findFirstMissingPositive(nums));
+console.log(findMissingNumber(nums));
 
-/* ===================================================== */
-
-
-/* ===================================================== */
 
 /*
 yesma ma i= 1
@@ -65,3 +63,13 @@ space → O(1)  incase the varible,arr,obj have fixed size in memory so space co
 
 space → O(n)  incase the varible,arr,obj have dynamic size in memory so space complexity is O(n) Set, Map, or extra array.
 */
+
+function findMissingNumber(nums) {
+  nums.sort((a, b) => a - b);
+
+  for (let i = 0; i <= nums.length; i++) {
+    if (nums[i] !== i) {
+      return i;
+    }
+  }
+}
