@@ -5,6 +5,11 @@ const users = [
   { id: 3, name: "Hari" }
 ];
 
+/*
+time complexity: O(n)
+space complexity: O(n)
+
+*/
 
 //Set is a built-in JavaScript data structure that stores only unique values. I created a Set called seen to keep track of the worker IDs that I've already processed. This allows me to quickly check whether an ID has been seen before.
 
