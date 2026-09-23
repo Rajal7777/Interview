@@ -9,7 +9,7 @@ function getIntersectionSet(arr1, arr2) {
 }
 
 const num1 =["2","6"];
-const num2 =;
+const num2 =["7","6"];
 console.log(getIntersectionSet(num1, num2)); // Output: [2, 3]
 
 
