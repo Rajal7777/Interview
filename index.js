@@ -1,34 +1,21 @@
-const users = [
-  { id: 101, name: "John" },
-  { id: 102, name: "Alice" },
-  { id: 103, name: "Bob" },
-];
+const nested = [1, [2, [3, 4], 5], 6];
 
-const userMap = new Map();
-
-for (const user of users) {
-  userMap.set(user.id, user);
+function flaternArr(arr) {
+  return arr.reduce((acc, item) => {
+   return acc.concat(Array.isArray(item) ? flaternArr(item) : item);
+  }, []);
+  
 }
 
-console.log(userMap.get(101));
-console.log(userMap);
+console.log(flaternArr(nested));
 
-console.log(twoSum([2, 7, 11, 15], 9));
 
-function twoSum(nums, target) {
-  const map = new Map();
+/*
+Time complexity -> O(N2) because we use filter which visit every element and also we use the concat which behind the seen copy all the element
+時間計算量 → O(N²) フィルタを使用してすべての要素を走査し、さらにconcatを使用してすべての要素をコピーするためです。
 
-  for (let i = 0; i < nums.length; i++) {
-    let current = nums[i];
-    let needed = target - current;
 
-    if (map.has(needed)) {
-      return [map.get(needed), i];
-    }
+Space Complexity -> O(N)  memory is required to store the newly created flattened array and the temporary intermediate arrays during .concat
+空間計算量 → O(N) 新しく作成されたフラット化された配列と、concat処理中に一時的に生成される中間配列を格納するためにメモリが必要です。
 
-    map.set(current, i);
-  }
-  console.log(map)
-
-  return [];
-}
+*/
